@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  pageNumber: number = 1 ;
+
+  setPageNumber(number) {
+    if(number == 1)
+      window.location.reload();
+    this.pageNumber = number;
+  }
 }

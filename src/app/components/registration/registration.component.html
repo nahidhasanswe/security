@@ -1,0 +1,131 @@
+<div class="fh5co-spacer fh5co-spacer-lg"></div>		
+<!-- Products -->
+<div class="container" id="fh5co-products">
+  <h4>Registration Form</h4>
+    <mat-horizontal-stepper [linear]="isLinear">
+        <mat-step [stepControl]="firstFormGroup">
+          <form [formGroup]="firstFormGroup">
+            <ng-template matStepLabel>Fill out your information</ng-template>
+            <div class="row">
+              <div class="col-lg-12">
+                  <mat-form-field>
+                    <input matInput placeholder="Name" formControlName="name" required>
+                    <mat-error *ngIf="firstFormGroup.controls['name'].errors?.required">
+                        <strong>Name</strong> is required
+                    </mat-error>
+                  </mat-form-field>
+              </div>
+              <div class="col-lg-12">
+                  <mat-form-field>
+                    <input matInput placeholder="Mobile Number" formControlName="mobile" required>
+                    <mat-error *ngIf="firstFormGroup.controls['mobile'].errors?.required">
+                        <strong>Mobile</strong> is required
+                    </mat-error>
+                  </mat-form-field>
+              </div>
+              <div class="col-lg-12">
+                  <mat-form-field>
+                    <input matInput placeholder="Email" formControlName="email" required>
+                    <mat-error *ngIf="firstFormGroup.controls['email'].errors?.required">
+                        <strong>Email</strong> is required
+                    </mat-error>
+                  </mat-form-field>
+              </div>
+              <div class="col-lg-12">
+                  <mat-form-field>
+                    <textarea matInput placeholder="Address" formControlName="address" required></textarea>
+                    <mat-error *ngIf="firstFormGroup.controls['address'].errors?.required">
+                        <strong>Address</strong> is required
+                    </mat-error>
+                  </mat-form-field>
+              </div>
+            </div>
+            <br>
+            <div>
+              <button mat-raised-button color="accent" matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="secondFormGroup">
+          <form [formGroup]="secondFormGroup">
+            <ng-template matStepLabel>Fill out your qualification</ng-template>
+            <div class="row">
+                <div class="col-lg-12">
+                    <mat-form-field>
+                      <mat-select placeholder="Qualification" formControlName="qualification">
+                          <mat-option value="Honors">below S.S.C</mat-option>
+                          <mat-option value="Honors">S.S.C</mat-option>
+                          <mat-option value="Honors">H.S.C</mat-option>
+                          <mat-option value="Honors">Honors</mat-option>
+                          <mat-option value="Honors">Masters</mat-option>
+                          <mat-option value="Honors">PhD</mat-option>
+                          <mat-option value="Honors">Other</mat-option>
+                      </mat-select>
+                      <mat-error *ngIf="secondFormGroup.controls['qualification'].errors?.required">
+                          <strong>Qualification</strong> is required
+                      </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-12">
+                    <div class="row">
+                        <div class="col-lg-4">
+                          <div class="form-group">
+                              <label for="certificate">Certification</label>
+                              <tag-input [inputId]="'certificate'" [ngModel]="[]" [ngModelOptions]="{standalone: true}" [theme]="'dark'" [separatorKeyCodes]="[32, 188]">
+                                <tag-input-dropdown [showDropdownIfEmpty]="true"
+                                                  [autocompleteItems]="['C#', 'Python', 'Java','C', 'C++', 'Ruby','JavaScript']">
+                                </tag-input-dropdown>
+                              </tag-input>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="row">
+                        <div class="col-lg-4">
+                          <div class="form-group">
+                              <label for="tag">Interest</label>
+                              <tag-input [ngModel]="[]" [ngModelOptions]="{standalone: true}"
+                                [inputClass]="'myinput'"
+                                [inputId]="'myinputId'"
+                                [separatorKeyCodes]="[32, 188]">
+                              </tag-input>
+                          </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-12">
+                    <div class="row">
+                      <div class="col-lg-4">
+                        <div class="form-group">
+                            <label for="tag">Expertise</label>
+                            <tag-input id="tag" [ngModel]="[]" [ngModelOptions]="{standalone: true}" [theme]="'bootstrap'"
+                            [onlyFromAutocomplete]="true">
+                            <tag-input-dropdown [showDropdownIfEmpty]="true"
+                                              [autocompleteItems]="['C#', 'Python', 'Java','C', 'C++', 'Ruby','JavaScript']">
+                            </tag-input-dropdown>
+                        </tag-input>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+              </div>
+              <br>
+            <div>
+              <button mat-raised-button color="warn" matStepperPrevious>Back</button>
+              <button mat-raised-button color="accent" matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Submit</ng-template>
+          <mat-checkbox [(ngModel)]="terms" [ngModelOptions]="{standalone: true}" color="warn">I Agree, terms and condition</mat-checkbox>
+          <br>
+          <div>
+              <button mat-raised-button color="accent" matStepperPrevious>Back</button>
+              <button mat-raised-button color="primary" [disabled]="!terms">Submit</button>
+          </div>
+        </mat-step>
+      </mat-horizontal-stepper>
+</div>
