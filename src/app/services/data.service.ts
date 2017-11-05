@@ -6,7 +6,7 @@ import { HttpService } from './http.service';
 @Injectable()
 export class DataService {
 
-  serverBasePath: string = "http://localhost:5000";
+  serverBasePath: string = "https://csecurity.azurewebsites.net";
 
   constructor(private http: HttpService) {
    }
