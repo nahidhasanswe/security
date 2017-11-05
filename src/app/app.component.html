@@ -5,14 +5,14 @@
       <!-- Mobile Toggle Menu Button -->
       <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle" data-toggle="collapse" data-target="#fh5co-navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
       <a class="navbar-brand cursorPointer" (click)="setPageNumber(1)">
-        <img src="../assets/images/logo.png" style="width: 90px; height: 35px;" alt="Icon">
+        <img src="assets/images/logo.png" style="width: 90px; height: 35px;" alt="Icon">
       </a>
       </div>
       <div id="fh5co-navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
           <li [ngClass]="{'active': pageNumber === 1,'cursorPointer': true}"><a (click)="setPageNumber(1)"><span>Home <span class="border"></span></span></a></li>
           <li [ngClass]="{'active': pageNumber === 2,'cursorPointer': true}"><a (click)="setPageNumber(2)"><span>Registration <span class="border"></span></span></a></li>
-          <li [ngClass]="{'active': pageNumber === 3,'cursorPointer': true}"><a (click)="setPageNumber(3)"><span>Login <span class="border"></span></span></a></li>
+          <li [ngClass]="{'active': pageNumber === 3,'cursorPointer': true}"><a (click)="setPageNumber(3)"><span>User List <span class="border"></span></span></a></li>
           <li [ngClass]="{'active': pageNumber === 4,'cursorPointer': true}"><a (click)="setPageNumber(4)"><span>About Us <span class="border"></span></span></a></li>
         </ul>
       </div>

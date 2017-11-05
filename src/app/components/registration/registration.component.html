@@ -71,7 +71,7 @@
                         <div class="col-lg-4">
                           <div class="form-group">
                               <label for="certificate">Certification</label>
-                              <tag-input [inputId]="'certificate'" [ngModel]="[]" [ngModelOptions]="{standalone: true}" [theme]="'dark'" [separatorKeyCodes]="[32, 188]">
+                              <tag-input [inputId]="'certificate'" [(ngModel)]="certification" [ngModelOptions]="{standalone: true}" [theme]="'dark'" [separatorKeyCodes]="[32, 188]">
                                 <tag-input-dropdown [showDropdownIfEmpty]="true"
                                                   [autocompleteItems]="['C#', 'Python', 'Java','C', 'C++', 'Ruby','JavaScript']">
                                 </tag-input-dropdown>
@@ -85,7 +85,7 @@
                         <div class="col-lg-4">
                           <div class="form-group">
                               <label for="tag">Interest</label>
-                              <tag-input [ngModel]="[]" [ngModelOptions]="{standalone: true}"
+                              <tag-input [(ngModel)]="interest" [ngModelOptions]="{standalone: true}"
                                 [inputClass]="'myinput'"
                                 [inputId]="'myinputId'"
                                 [separatorKeyCodes]="[32, 188]">
@@ -100,7 +100,7 @@
                       <div class="col-lg-4">
                         <div class="form-group">
                             <label for="tag">Expertise</label>
-                            <tag-input id="tag" [ngModel]="[]" [ngModelOptions]="{standalone: true}" [theme]="'bootstrap'"
+                            <tag-input id="tag" [(ngModel)]="expertise" [ngModelOptions]="{standalone: true}" [theme]="'bootstrap'"
                             [onlyFromAutocomplete]="true">
                             <tag-input-dropdown [showDropdownIfEmpty]="true"
                                               [autocompleteItems]="['C#', 'Python', 'Java','C', 'C++', 'Ruby','JavaScript']">
@@ -120,11 +120,11 @@
         </mat-step>
         <mat-step>
           <ng-template matStepLabel>Submit</ng-template>
-          <mat-checkbox [(ngModel)]="terms" [ngModelOptions]="{standalone: true}" color="warn">I Agree, terms and condition</mat-checkbox>
+          <mat-checkbox [(ngModel)]="terms" [ngModelOptions]="{standalone: true}" color="warn">I Agree, </mat-checkbox><a style="cursor: pointer; color:blueviolet" color="primary" (click)="openTermsCondition()"> terms and condition</a>
           <br>
           <div>
               <button mat-raised-button color="accent" matStepperPrevious>Back</button>
-              <button mat-raised-button color="primary" [disabled]="!terms">Submit</button>
+              <button mat-raised-button color="primary" [disabled]="!terms" (click)="Registration(firstFormGroup.value,secondFormGroup.value)">Submit</button>
           </div>
         </mat-step>
       </mat-horizontal-stepper>
